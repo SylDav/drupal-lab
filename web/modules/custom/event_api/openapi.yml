@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Event API
+  version: 1.0.0
+  description: Expose les événements (aujourd'hui inclus) à venir en JSON
+paths:
+  /api/events:
+    get:
+      summary: Liste des événements à venir
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          description: Nombre maximum d'événements à retourner. Une valeur hors de 1 à 50 est ramenée à la borne la plus proche.
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+      responses:
+        '200':
+          description: Liste triée par date croissante
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Event'
+        '403':
+          description: Permission "access content" manquante
+components:
+  schemas:
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifiant unique de l'événement
+          example: 3
+        title:
+          type: string
+          description: Titre de l'événement
+          example: Conférence sur Drupal
+        date:
+          type: string
+          format: date
+          description: Date de l'événement
+          example: '2024-06-15'
+        location:
+          type: string
+          description: Lieu de l'événement
+          example: Rouen

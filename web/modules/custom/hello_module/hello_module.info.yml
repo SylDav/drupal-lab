@@ -1,0 +1,5 @@
+name: Hello Module
+type: module
+description: Mon premier module Drupal
+package: Custom
+core_version_requirement: ^10.3 || ^11

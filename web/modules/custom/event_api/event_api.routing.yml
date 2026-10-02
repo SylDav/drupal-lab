@@ -1,0 +1,8 @@
+event_api.list:
+  path: '/api/events'
+  defaults:
+    _controller: '\Drupal\event_api\Controller\EventController::list'
+    _title: 'Event API'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'

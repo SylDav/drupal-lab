@@ -1,0 +1,4 @@
+services:
+  event_api.event_provider:
+    class: Drupal\event_api\EventProvider
+    arguments: ['@entity_type.manager']
