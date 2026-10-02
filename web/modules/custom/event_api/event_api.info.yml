@@ -1,5 +1,5 @@
 name: Event API
 type: module
-descriptionn: Expose les événements à venir en JSON
+description: Expose les événements à venir en JSON
 package: Custom
 core_version_requirement: ^10.3 || ^11
